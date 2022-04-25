@@ -1,4 +1,4 @@
-.card-container {
+.people-component .people-container {
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +6,11 @@
   width: 100%;
 }
 
-.card {
+.people-component .card-container {
   height: 200px;
   width: 30%;
+}
+
+.people-component .card-body ul {
+  list-style: none;
 }
