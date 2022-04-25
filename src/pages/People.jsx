@@ -3,11 +3,14 @@ import SwapiAPI from "../services/SWAPI";
 import Button from "react-bootstrap/Button";
 import "./People.css";
 import ReactPaginate from "react-paginate";
+import { useSearchParams } from "react-router-dom";
 
 const People = () => {
   const [people, setPeople] = useState([]);
   const [isLoading, setisLoading] = useState(false);
   const [page, setPage] = useState(1);
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const getPeople = async () => {
@@ -15,7 +18,9 @@ const People = () => {
       const people = await SwapiAPI.getPeople(page);
       setPeople(people.results);
       setisLoading(false);
+      setSearchParams({ page: page });
     };
+
     getPeople();
   }, [page]);
 
