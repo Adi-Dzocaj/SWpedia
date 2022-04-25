@@ -17,4 +17,15 @@ const getPeople = async (page) => {
   }
 };
 
-export default { getPeople };
+const getPerson = async (index) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/people/${index}`);
+    return res.data;
+  } catch (err) {
+    return {
+      message: err.message,
+    };
+  }
+};
+
+export default { getPeople, getPerson };

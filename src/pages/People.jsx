@@ -3,7 +3,7 @@ import SwapiAPI from "../services/SWAPI";
 import Button from "react-bootstrap/Button";
 import "./People.css";
 import ReactPaginate from "react-paginate";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -34,19 +34,24 @@ const People = () => {
         <p>loading...</p>
       ) : (
         <div className="people-container">
-          {people.map((person) => {
+          {people.map((person, index) => {
             return (
-              <div className="card-container" key={person.name}>
+              <div className="card-container" key={index}>
                 <div className="card-body">
                   <h1 className="ms-4">{person.name}</h1>
                   <ul>
+                    <li>person: {index + 1}</li>
                     <li>
                       Gender:
                       {person.gender === "n/a" ? "unknown" : person.gender}
                     </li>
                     <li>Birth year:{person.birth_year}</li>
                     <li>In: {person.films.length + 1} films</li>
-                    <Button className="mt-3 btn btn-primary">Read more</Button>
+                    <Link to={`/person/${index + 1}`}>
+                      <Button className="mt-3 btn btn-primary">
+                        Read more
+                      </Button>
+                    </Link>
                   </ul>
                 </div>
               </div>
