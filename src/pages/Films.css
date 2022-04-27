@@ -1,0 +1,35 @@
+.films-component .films-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.films-component .films-container .card-container {
+  border: 1px solid black;
+  margin-bottom: 50px;
+  height: 300px;
+  width: 30%;
+}
+
+.films-component .card-body ul {
+  list-style: none;
+}
+
+.films-component .extra-btn-styling {
+  margin-bottom: 50px;
+}
+
+.films-component .paginationButtonStyling {
+  border: 0.5px solid gray;
+  padding: 10px;
+  background-color: white;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.films-component .paginationButtonLinkStyling {
+  text-decoration: none;
+  cursor: not-allowed;
+}

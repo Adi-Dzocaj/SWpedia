@@ -1,0 +1,7 @@
+.film-component {
+  display: flex;
+}
+
+.film-component ul li {
+  list-style: none;
+}
