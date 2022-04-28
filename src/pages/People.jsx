@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./People.css";
 import ReactPaginate from "react-paginate";
 import { useSearchParams, Link } from "react-router-dom";
+import { getIdFromUrl } from "../Helper/getIdFromUrl";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -47,7 +48,7 @@ const People = () => {
                     </li>
                     <li>Birth year:{person.birth_year}</li>
                     <li>In: {person.films.length + 1} films</li>
-                    <Link to={`/person/${index + 1}`}>
+                    <Link to={`/person/${getIdFromUrl(person.url)}`}>
                       <Button className="mt-3 btn btn-primary">
                         Read more
                       </Button>
