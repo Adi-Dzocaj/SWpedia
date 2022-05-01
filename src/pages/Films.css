@@ -1,5 +1,6 @@
 .films-component .films-container {
-  margin: 20px;
+  padding: 30px;
+  /* margin: 20px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -10,7 +11,7 @@
   border: 1px solid black;
   margin-bottom: 50px;
   height: 300px;
-  width: 30%;
+  width: 32%;
 }
 
 .films-component .card-body ul {

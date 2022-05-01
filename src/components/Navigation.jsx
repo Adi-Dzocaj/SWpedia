@@ -9,7 +9,7 @@ const Navigation = () => {
         <h1 className="navbar-header-link">SWpedia</h1>
       </Link>
       <div>
-        <Link className="navbar-link" to={"/people"}>
+        <Link className="navbar-link" to={"/people/?page=1"}>
           People
         </Link>
         <Link className="navbar-link" to={"/films"}>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
 import "./Films.css";
-import { useSearchParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Films = () => {
   const [films, setFilms] = useState([]);
@@ -15,8 +15,6 @@ const Films = () => {
       setisLoading(true);
       const films = await SwapiAPI.getFilms();
       setFilms(films.results);
-      console.log(films);
-      console.log(films.results.length);
       setisLoading(false);
     };
 

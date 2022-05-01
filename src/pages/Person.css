@@ -1,0 +1,13 @@
+.person-container {
+  margin: 50px;
+}
+
+.person-container .top-left-side,
+.bottom-left-side {
+  width: 30%;
+}
+
+.person-container .top-right-side,
+.bottom-right-side {
+  width: 70%;
+}

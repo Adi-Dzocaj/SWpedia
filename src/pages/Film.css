@@ -1,5 +1,6 @@
 .film-component {
   display: flex;
+  padding: 30px;
 }
 
 .film-component ul li {
@@ -7,10 +8,11 @@
 }
 
 .film-header {
-  background-color: lightgray;
-  border-bottom: 1px solid black;
-  padding: 10px;
-  margin-bottom: 20px;
+  background-color: black;
+  border-top: 1px solid red;
+  border-bottom: 3px solid red;
+  padding: 20px;
+  color: red;
 }
 
 .film-component .film-info-list {

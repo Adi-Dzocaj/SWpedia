@@ -19,7 +19,7 @@ const Film = () => {
   }, []);
 
   return (
-    <div>
+    <div className="background-color">
       <h1 className="text-center film-header">{film.title}</h1>
       <div className="film-component">
         <div className="w-25">
@@ -37,7 +37,8 @@ const Film = () => {
             {people.map((person) => {
               return (
                 <Link
-                  to={`/person/${getIdFromUrl(person)}`}
+                  key={getIdFromUrl(person)}
+                  to={`/people/${getIdFromUrl(person)}`}
                   className="mt-5 me-5 character-link"
                 >
                   <div>Character: {getIdFromUrl(person)}</div>
