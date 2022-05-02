@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import ReactPaginate from "react-paginate";
 import "./Films.css";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Films = () => {
   const [films, setFilms] = useState([]);
@@ -24,7 +25,7 @@ const Films = () => {
   return (
     <div className="films-component">
       {isLoading ? (
-        <p>loading...</p>
+        <Loader />
       ) : (
         <div className="films-container">
           {films.map((film, index) => {

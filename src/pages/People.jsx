@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./People.css";
 import { Link, useSearchParams } from "react-router-dom";
 import { getIdFromUrl } from "../Helper/getIdFromUrl";
+import Loader from "../components/Loader";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -40,7 +41,7 @@ const People = () => {
   return (
     <div className="people-component">
       {isLoading ? (
-        <p>loading...</p>
+        <Loader />
       ) : (
         <div className="people-container">
           {people.map((person, index) => {
