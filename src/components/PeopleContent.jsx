@@ -17,10 +17,6 @@ const PeopleContent = () => {
 
   const page = searchParams.get("page");
 
-  // useEffect(() => {
-  //   setSearchParams({ page: 1 });
-  // }, []);
-
   const getPeople = async () => {
     setisLoading(true);
     const people = await SwapiAPI.getPeople(page);

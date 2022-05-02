@@ -10,7 +10,7 @@ const Navigation = () => {
         SWpedia
       </Navbar.Brand>
       <Nav>
-        <Nav.Link className="navbar-link" as={NavLink} to="/people/" end>
+        <Nav.Link className="navbar-link" as={NavLink} to="/people/?page=1" end>
           People
         </Nav.Link>
         <Nav.Link className="navbar-link" as={NavLink} to="/films/" end>
