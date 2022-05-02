@@ -6,6 +6,7 @@ import People from "./pages/People";
 import Films from "./pages/Films";
 import Person from "./pages/Person";
 import Film from "./pages/Film";
+import Errorpage from "./pages/Errorpage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/people/:id" element={<Person />} />
         <Route path="/films" element={<Films />} />
         <Route path="/films/:id" element={<Film />} />
+        <Route path="*" element={<Errorpage />} />
       </Routes>
     </div>
   );

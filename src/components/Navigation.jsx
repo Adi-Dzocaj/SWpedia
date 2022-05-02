@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import "./Navigation.css";
 
 const Navigation = () => {
   return (
     <div className="navbar-container">
-      <Link to={"/"}>
-        {" "}
-        <h1 className="navbar-header-link">SWpedia</h1>
-      </Link>
-      <div>
-        <Link className="navbar-link" to={"/people/?page=1"}>
+      <Navbar.Brand className="navbar-header-link" as={Link} to="/">
+        SWpedia
+      </Navbar.Brand>
+      <Nav>
+        <Nav.Link className="navbar-link" as={NavLink} to="/people/" end>
           People
-        </Link>
-        <Link className="navbar-link" to={"/films"}>
+        </Nav.Link>
+        <Nav.Link className="navbar-link" as={NavLink} to="/films/" end>
           Films
-        </Link>
-      </div>
+        </Nav.Link>
+      </Nav>
     </div>
   );
 };

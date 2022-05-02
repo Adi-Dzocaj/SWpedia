@@ -8,7 +8,6 @@ import { getIdFromUrl } from "../Helper/getIdFromUrl";
 const People = () => {
   const [people, setPeople] = useState([]);
   const [isLoading, setisLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState();
 
   const [searchParams, setSearchParams] = useSearchParams({
@@ -17,11 +16,16 @@ const People = () => {
 
   const query = searchParams.get("page");
 
+  useEffect(() => {
+    setSearchParams({ page: 1 });
+  }, []);
+
   const getPeople = async () => {
     setisLoading(true);
     const people = await SwapiAPI.getPeople(query);
     setPageCount(Math.ceil(people.count / 10));
     setPeople(people.results);
+    console.log(query);
     setisLoading(false);
   };
 
@@ -30,8 +34,7 @@ const People = () => {
   }, [query]);
 
   const handlePageClick = () => {
-    setCurrentPage((prevValue) => prevValue + 1);
-    setSearchParams({ page: currentPage + 1 });
+    setSearchParams({ page: Number(query) + 1 });
   };
 
   return (
@@ -73,8 +76,8 @@ const People = () => {
           <div className="prev">
             <Button
               variant="primary"
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage((prevValue) => prevValue - 1)}
+              disabled={query == 1}
+              onClick={() => setSearchParams({ page: query - 1 })}
             >
               Previous
             </Button>
@@ -83,7 +86,7 @@ const People = () => {
           <div className="next">
             <Button
               variant="primary"
-              disabled={currentPage === pageCount}
+              disabled={query == pageCount}
               onClick={handlePageClick}
             >
               Next
