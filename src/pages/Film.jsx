@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SwapiAPI from "../services/SWAPI";
-import "./Film.css";
+import "./Styling/Film.css";
 import { getIdFromUrl } from "../Helper/getIdFromUrl";
 import Loader from "../components/Loader";
 

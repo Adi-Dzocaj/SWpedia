@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SwapiAPI from "../services/SWAPI";
 import { getIdFromUrl } from "../Helper/getIdFromUrl";
-import "./Person.css";
+import "./Styling/Person.css";
 import Loader from "../components/Loader";
 
 const Person = () => {
