@@ -15,24 +15,24 @@ const PeopleContent = () => {
     page: 1,
   });
 
-  const query = searchParams.get("page");
+  const page = searchParams.get("page");
 
-  useEffect(() => {
-    setSearchParams({ page: 1 });
-  }, []);
+  // useEffect(() => {
+  //   setSearchParams({ page: 1 });
+  // }, []);
 
   const getPeople = async () => {
     setisLoading(true);
-    const people = await SwapiAPI.getPeople(query);
+    const people = await SwapiAPI.getPeople(page);
     setPageCount(Math.ceil(people.count / 10));
     setPeople(people.results);
-    console.log(query);
+    console.log(page);
     setisLoading(false);
   };
 
   useEffect(() => {
     getPeople();
-  }, [query]);
+  }, [page]);
 
   return (
     <div className="people-component">
@@ -72,18 +72,18 @@ const PeopleContent = () => {
         <div className="prev">
           <Button
             variant="primary"
-            disabled={query == 1}
-            onClick={() => setSearchParams({ page: Number(query) - 1 })}
+            disabled={Number(page) === 1}
+            onClick={() => setSearchParams({ page: Number(page) - 1 })}
           >
             Previous
           </Button>
         </div>
-        <div className="page ps-4 pe-4">{query}</div>
+        <div className="page ps-4 pe-4">{page}</div>
         <div className="next">
           <Button
             variant="primary"
-            disabled={query == pageCount}
-            onClick={() => setSearchParams({ page: Number(query) + 1 })}
+            disabled={Number(page) === pageCount}
+            onClick={() => setSearchParams({ page: Number(page) + 1 })}
           >
             Next
           </Button>
