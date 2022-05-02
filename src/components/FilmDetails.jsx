@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SwapiAPI from "../services/SWAPI";
 import "./ComponentStyling/Film.css";
@@ -10,6 +10,8 @@ const FilmDetails = () => {
   const { id } = useParams();
   const [film, setFilm] = useState([]);
   const [people, setPeople] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getFilm = async () => {
@@ -55,6 +57,12 @@ const FilmDetails = () => {
               </div>
             </div>
           </div>
+          <button
+            className=" ms-5 btn btn-primary"
+            onClick={() => navigate(-1)}
+          >
+            back
+          </button>
         </div>
       )}
     </div>

@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import "./Navigation.css";
+import "./ComponentStyling/Navigation.css";
 
 const Navigation = () => {
   return (
