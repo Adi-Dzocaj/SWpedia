@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SwapiAPI from "../services/SWAPI";
 import Button from "react-bootstrap/Button";
-import "../pages/Styling/People.css";
+import "./ComponentStyling/People.css";
 import { Link, useSearchParams } from "react-router-dom";
 import { getIdFromUrl } from "../Helper/getIdFromUrl";
 import Loader from "../components/Loader";

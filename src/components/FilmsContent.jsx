@@ -1,7 +1,7 @@
 import SwapiAPI from "../services/SWAPI";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-import "../pages/Styling/Films.css";
+import "./ComponentStyling/Films.css";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 
