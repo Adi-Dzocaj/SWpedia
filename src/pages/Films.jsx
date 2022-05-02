@@ -1,7 +1,6 @@
 import SwapiAPI from "../services/SWAPI";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-import ReactPaginate from "react-paginate";
 import "./Films.css";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -10,16 +9,20 @@ const Films = () => {
   const [films, setFilms] = useState([]);
   const [isLoading, setisLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [nextPage, setNextPage] = useState();
+  const [previousPage, setPreviousPage] = useState();
 
   useEffect(() => {
-    const getPeople = async () => {
+    const getFilms = async () => {
       setisLoading(true);
       const films = await SwapiAPI.getFilms();
+      setNextPage(films.next);
+      setPreviousPage(films.previous);
       setFilms(films.results);
       setisLoading(false);
     };
 
-    getPeople();
+    getFilms();
   }, [page]);
 
   return (
@@ -49,42 +52,19 @@ const Films = () => {
           })}
         </div>
       )}
-      {
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageCount={Math.floor(films.length / 10)}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={3}
-          containerClassName={"pagination justify-content-center"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={
-            Math.floor(films.length / 10) < 1
-              ? "paginationButtonStyling"
-              : "page-item"
-          }
-          previousLinkClassName={
-            Math.floor(films.length / 10) < 1
-              ? "paginationButtonLinkStyling"
-              : "page-link"
-          }
-          nextClassName={
-            Math.floor(films.length / 10) < 1
-              ? "paginationButtonStyling"
-              : "page-item"
-          }
-          nextLinkClassName={
-            Math.floor(films.length / 10) < 1
-              ? "paginationButtonLinkStyling"
-              : "page-link"
-          }
-          breakClassName={"page-item"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
-      }
+      <div className="d-flex justify-content-center align-items-center mt-4">
+        <div className="prev">
+          <Button variant="primary" disabled={previousPage === null}>
+            Previous
+          </Button>
+        </div>
+        <div className="page ps-4 pe-4">{}</div>
+        <div className="next">
+          <Button variant="primary" disabled={nextPage === null}>
+            Next
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
