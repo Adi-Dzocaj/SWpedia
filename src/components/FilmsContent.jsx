@@ -23,7 +23,7 @@ const FilmsContent = () => {
     };
 
     getFilms();
-  }, [page]);
+  }, [page, setPage]);
 
   return (
     <div className="films-component">
